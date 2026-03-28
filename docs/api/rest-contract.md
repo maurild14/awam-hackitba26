@@ -11,6 +11,13 @@
 - `POST /api/v1/auth/logout`
 - `GET /api/v1/auth/me`
 
+### Contrato mínimo de M2
+- `register`: `{ email, password, username, role }`
+- `login`: `{ email, password }`
+- `refresh`: usa cookies `httpOnly`, sin body
+- `logout`: usa cookies `httpOnly`, sin body
+- `me`: devuelve `{ user: { id, email, username, role } }`
+
 ## Bots
 Debe cubrir, como mínimo:
 - listado público de bots published,

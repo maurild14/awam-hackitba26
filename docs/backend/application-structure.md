@@ -4,13 +4,17 @@
 ```md
 # Backend Application Structure
 
-## Estado implementado en M1
-En Milestone 1 solo existe el scaffold base para que el backend arranque, exponga healthchecks y fije convenciones compartidas.
+## Estado implementado en M2
+En Milestone 2 el backend ya cubre:
+- healthcheck,
+- auth por backend contra Supabase,
+- cookies `httpOnly`,
+- middlewares de auth y rol,
+- acceso a perfiles,
+- configuración de clientes Supabase.
 
 Todavía no están implementados:
-- auth y roles,
-- rutas `/api/v1/*`,
-- modelos persistentes,
+- rutas de bots, payments, sessions, stream e internal,
 - servicios de pagos, Vault, Redis, Docker o sandbox.
 
 ## Estructura esperada
@@ -21,15 +25,25 @@ backend/
 │  ├─ index.js
 │  ├─ app.js
 │  ├─ config/
-│  │  └─ env.js
+│  │  ├─ cookies.js
+│  │  ├─ env.js
+│  │  └─ supabase.js
 │  ├─ lib/
+│  │  ├─ httpError.js
 │  │  └─ logger.js
 │  ├─ middleware/
+│  │  ├─ auth.js
 │  │  ├─ errorHandler.js
 │  │  └─ requestContext.js
+│  ├─ models/
+│  │  └─ profile.js
+│  ├─ services/
+│  │  └─ authService.js
 │  └─ routes/
+│     ├─ auth.js
 │     └─ health.js
 └─ test/
+   ├─ auth.test.js
    └─ health.test.js
 ```
 
@@ -52,8 +66,8 @@ Toda respuesta de error debe ser consistente. No exponer stack traces ni detalle
 - `payments.js` + `mercadopagoService.js`
 - `stream.js`
 
-## Evolución prevista después de M1
-Los directorios `services/`, `models/` y el resto de `routes/` se agregan en milestones posteriores, cuando entren auth, datos, pagos y runtime.
+## Evolución prevista después de M2
+Las rutas y servicios de negocio para bots, payments, sessions, streaming e internal se agregan en milestones posteriores sobre esta base de auth y perfiles.
 ```
 
 ---

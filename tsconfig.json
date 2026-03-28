@@ -17,7 +17,6 @@
   },
   "include": [
     "backend/**/*.js",
-    "frontend/**/*.js",
     "packages/**/*.js",
     "proxy/**/*.js",
     "eslint.config.js"

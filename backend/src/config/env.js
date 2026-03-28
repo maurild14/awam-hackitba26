@@ -3,6 +3,20 @@ const ALLOWED_NODE_ENVS = new Set(["development", "test", "production"]);
 
 /**
  * @param {NodeJS.ProcessEnv} env
+ * @param {string} key
+ */
+function readRequiredEnv(env, key) {
+  const value = env[key]?.trim();
+
+  if (!value) {
+    throw new Error(`Missing required environment variable ${key}.`);
+  }
+
+  return value;
+}
+
+/**
+ * @param {NodeJS.ProcessEnv} env
  */
 export function loadEnv(env = process.env) {
   const nodeEnv = env.NODE_ENV ?? "development";
@@ -21,9 +35,10 @@ export function loadEnv(env = process.env) {
   return Object.freeze({
     nodeEnv,
     port: parsedPort,
-    frontendUrl: env.FRONTEND_URL ?? "http://localhost:3000",
-    supabaseUrl: env.SUPABASE_URL ?? "",
-    supabaseServiceKey: env.SUPABASE_SERVICE_KEY ?? "",
+    frontendUrl: readRequiredEnv(env, "FRONTEND_URL"),
+    supabaseUrl: readRequiredEnv(env, "SUPABASE_URL"),
+    supabaseAnonKey: readRequiredEnv(env, "SUPABASE_ANON_KEY"),
+    supabaseServiceKey: readRequiredEnv(env, "SUPABASE_SERVICE_KEY"),
     upstashRedisUrl: env.UPSTASH_REDIS_URL ?? "",
     upstashRedisToken: env.UPSTASH_REDIS_TOKEN ?? "",
     vaultUrl: env.VAULT_URL ?? "",

@@ -3,7 +3,11 @@ import test from "node:test";
 
 import request from "supertest";
 
-import app from "../src/app.js";
+import { createApp } from "../src/app.js";
+
+const app = createApp({
+  frontendUrl: "http://localhost:3000"
+});
 
 test("GET /healthz returns backend health payload", async () => {
   const response = await request(app).get("/healthz");

@@ -1,8 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "AWAM Workspace",
-  description: "Milestone 1 scaffold for the AWAM marketplace."
+  title: "AWAM",
+  description: "Milestone 2 scaffold with auth and persistence foundations."
 };
 
 /**

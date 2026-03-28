@@ -1,4 +1,5 @@
 import js from "@eslint/js";
+import reactPlugin from "eslint-plugin-react";
 import globals from "globals";
 
 const commonNodeFiles = [
@@ -29,6 +30,9 @@ export default [
   },
   {
     files: ["frontend/**/*.js"],
+    plugins: {
+      react: reactPlugin
+    },
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
@@ -41,6 +45,14 @@ export default [
         ...globals.browser,
         ...globals.node
       }
+    },
+    settings: {
+      react: {
+        version: "detect"
+      }
+    },
+    rules: {
+      "react/jsx-uses-vars": "error"
     }
   }
 ];

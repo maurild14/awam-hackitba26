@@ -4,13 +4,15 @@
 ```md
 # Views and Rendering
 
-## Estado implementado en M1
-En Milestone 1 solo existe el scaffold base del frontend:
+## Estado implementado en M2
+En Milestone 2 el frontend ya tiene:
 - `layout.js`
 - `page.js`
 - `globals.css`
+- `auth/login/page.js`
+- `auth/register/page.js`
 
-Todavía no existen las páginas de marketplace, auth, checkout, dashboards ni paneles operativos.
+Todavía no existen las páginas de marketplace, checkout, dashboards buyer/seller ni admin.
 
 ## Estrategia de renderizado
 
@@ -33,7 +35,10 @@ Todavía no existen las páginas de marketplace, auth, checkout, dashboards ni p
 frontend/app/
 ├─ layout.js
 ├─ page.js
-└─ globals.css
+├─ globals.css
+└─ auth/
+   ├─ login/page.js
+   └─ register/page.js
 ```
 
 ## Componentes clave
@@ -48,8 +53,8 @@ frontend/app/
 - progreso legible,
 - errores con copy claro, no técnico.
 
-## Evolución prevista después de M1
-La estructura completa de marketplace, checkout, dashboard, seller, auth y admin se incorpora en milestones posteriores sobre este scaffold inicial.
+## Evolución prevista después de M2
+La estructura completa de marketplace, checkout, dashboard, seller y admin se incorpora en milestones posteriores sobre esta base ya autenticable.
 ```
 
 ---
