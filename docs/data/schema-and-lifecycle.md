@@ -1,4 +1,3 @@
-
 # Archivo: `/docs/data/schema-and-lifecycle.md`
 
 ```md
@@ -14,6 +13,7 @@ Extiende la identidad de Supabase Auth con:
 ## bots
 Campos clave:
 - `seller_id`
+- `slug`
 - `title`
 - `description`
 - `price_ars`
@@ -26,6 +26,23 @@ Campos clave:
 - `resources`
 - `total_executions`
 - `average_rating`
+
+### Shape de metadata usada desde M3
+- `credential_schema`
+  - array de objetos con:
+    - `env_var`
+    - `label`
+    - `type` en `text | password | textarea`
+    - `required`
+    - `placeholder` opcional
+    - `description` opcional
+- `allowed_domains`
+  - array de hostnames sin protocolo ni path
+- `resources`
+  - objeto con:
+    - `cpu`
+    - `memory_mb`
+    - `max_minutes`
 
 ### Estados de `bots`
 - `draft`
@@ -78,9 +95,9 @@ Campos clave:
 - `refunded`
 
 ## reviews
-Una review por sesión.
+Una review por sesion.
 
-## Índices importantes
+## Indices importantes
 - `bots(status)`
 - `bots(category)`
 - `bots(seller_id)`
@@ -91,13 +108,13 @@ Una review por sesión.
 - `reviews(bot_id)`
 
 ## Trigger importante
-La puntuación promedio del bot se recalcula al insertar reviews.
+La puntuacion promedio del bot se recalcula al insertar reviews.
 
-## Regla crítica
-Nunca reemplazar la separación:
+## Regla critica
+Nunca reemplazar la separacion:
 - DB para metadata y estado,
 - Vault para secretos,
-- Redis para estado efímero y coordinación rápida.
+- Redis para estado efimero y coordinacion rapida.
 ```
 
 ---

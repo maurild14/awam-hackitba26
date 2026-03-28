@@ -1,8 +1,12 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "AWAM",
-  description: "Milestone 2 scaffold with auth and persistence foundations."
+  title: {
+    default: "AWAM",
+    template: "%s"
+  },
+  description:
+    "Marketplace de agentes IA con catálogo público, metadata de seller y flujo editorial admin."
 };
 
 /**

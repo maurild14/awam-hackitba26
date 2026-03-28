@@ -26,6 +26,8 @@ Describe la aplicación Next.js, la estrategia de renderizado y las vistas princ
 
 ## Leer según la tarea
 - detalles de páginas y renderizado: `views-and-rendering.md`
+- Estilo de diseño tono y vibe: `design-system.md`
+- Componentes exactos de la pagina: `/docs/frontend/items.md`
 - flujos del usuario: `../product/marketplace-flows.md`
 - contratos API: `../api/rest-contract.md`
 ```

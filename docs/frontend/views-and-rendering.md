@@ -29,16 +29,7 @@ Todavía no existen las páginas de marketplace, checkout, dashboards buyer/sell
 - admin,
 - session progress.
 
-## Estructura esperada
 
-```text
-frontend/app/
-├─ layout.js
-├─ page.js
-├─ globals.css
-└─ auth/
-   ├─ login/page.js
-   └─ register/page.js
 ```
 
 ## Componentes clave
