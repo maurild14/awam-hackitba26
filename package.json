@@ -1,0 +1,29 @@
+{
+  "name": "proyecto-awam",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "frontend",
+    "backend",
+    "proxy",
+    "packages/shared"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n backend,proxy,frontend -c blue,green,magenta \"npm run dev --workspace backend\" \"npm run dev --workspace proxy\" \"npm run dev --workspace frontend\"",
+    "lint": "eslint backend frontend proxy packages eslint.config.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run test --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "@types/node": "^22.13.14",
+    "concurrently": "^9.1.2",
+    "eslint": "^9.23.0",
+    "globals": "^16.0.0",
+    "typescript": "^5.8.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

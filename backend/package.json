@@ -1,0 +1,21 @@
+{
+  "name": "@awam/backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "test": "node --test --test-isolation=none",
+    "build": "node -e \"console.log('backend build ok')\""
+  },
+  "dependencies": {
+    "@awam/shared": "file:../packages/shared",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/supertest": "^6.0.3",
+    "supertest": "^7.1.0"
+  }
+}

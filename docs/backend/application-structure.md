@@ -4,38 +4,33 @@
 ```md
 # Backend Application Structure
 
+## Estado implementado en M1
+En Milestone 1 solo existe el scaffold base para que el backend arranque, exponga healthchecks y fije convenciones compartidas.
+
+Todavía no están implementados:
+- auth y roles,
+- rutas `/api/v1/*`,
+- modelos persistentes,
+- servicios de pagos, Vault, Redis, Docker o sandbox.
+
 ## Estructura esperada
 
 ```text
 backend/
 ├─ src/
 │  ├─ index.js
+│  ├─ app.js
 │  ├─ config/
-│  │  ├─ database.js
-│  │  ├─ redis.js
-│  │  ├─ vault.js
-│  │  └─ docker.js
+│  │  └─ env.js
+│  ├─ lib/
+│  │  └─ logger.js
 │  ├─ middleware/
-│  │  ├─ auth.js
-│  │  └─ errorHandler.js
-│  ├─ routes/
-│  │  ├─ auth.js
-│  │  ├─ bots.js
-│  │  ├─ sessions.js
-│  │  ├─ payments.js
-│  │  ├─ stream.js
-│  │  └─ internal.js
-│  ├─ services/
-│  │  ├─ vaultService.js
-│  │  ├─ dockerService.js
-│  │  ├─ sandboxService.js
-│  │  └─ mercadopagoService.js
-│  └─ models/
-│     ├─ bot.js
-│     ├─ session.js
-│     ├─ payment.js
-│     ├─ review.js
-│     └─ profile.js
+│  │  ├─ errorHandler.js
+│  │  └─ requestContext.js
+│  └─ routes/
+│     └─ health.js
+└─ test/
+   └─ health.test.js
 ```
 
 ## Regla de separación
@@ -56,6 +51,9 @@ Toda respuesta de error debe ser consistente. No exponer stack traces ni detalle
 - `vaultService.js`
 - `payments.js` + `mercadopagoService.js`
 - `stream.js`
+
+## Evolución prevista después de M1
+Los directorios `services/`, `models/` y el resto de `routes/` se agregan en milestones posteriores, cuando entren auth, datos, pagos y runtime.
 ```
 
 ---

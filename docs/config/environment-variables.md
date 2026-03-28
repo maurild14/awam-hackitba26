@@ -4,6 +4,12 @@
 ```md
 # Environment Variables
 
+## Estado implementado en M1
+- Backend usa de forma obligatoria solo `NODE_ENV` y `PORT`.
+- Frontend usa de forma obligatoria solo `NEXT_PUBLIC_API_URL`.
+- Proxy usa de forma obligatoria solo `NODE_ENV` y `PORT`.
+- El resto de variables listadas abajo forman parte de la superficie futura del MVP y pueden quedar vacías en M1.
+
 ## Backend
 Variables esperadas:
 - `NODE_ENV`
@@ -31,6 +37,10 @@ Variables públicas:
 - `NEXT_PUBLIC_MP_PUBLIC_KEY`
 
 ## Proxy
+Variables de proceso para desarrollo local:
+- `NODE_ENV`
+- `PORT`
+
 Variables inyectadas por sesión:
 - `SESSION_ID`
 - `PHANTOM_TOKEN`

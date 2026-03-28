@@ -4,6 +4,14 @@
 ```md
 # Views and Rendering
 
+## Estado implementado en M1
+En Milestone 1 solo existe el scaffold base del frontend:
+- `layout.js`
+- `page.js`
+- `globals.css`
+
+Todavía no existen las páginas de marketplace, auth, checkout, dashboards ni paneles operativos.
+
 ## Estrategia de renderizado
 
 ### Server Components
@@ -23,25 +31,9 @@
 
 ```text
 frontend/app/
-├─ layout.tsx
-├─ page.tsx
-├─ marketplace/
-│  ├─ page.tsx
-│  └─ [slug]/page.tsx
-├─ checkout/
-│  └─ [botId]/page.tsx
-├─ dashboard/
-│  ├─ page.tsx
-│  └─ sessions/[sessionId]/page.tsx
-├─ seller/
-│  ├─ page.tsx
-│  ├─ new-bot/page.tsx
-│  └─ bots/[botId]/page.tsx
-├─ auth/
-│  ├─ login/page.tsx
-│  └─ register/page.tsx
-├─ admin/page.tsx
-└─ api/auth/callback/route.ts
+├─ layout.js
+├─ page.js
+└─ globals.css
 ```
 
 ## Componentes clave
@@ -55,6 +47,9 @@ frontend/app/
 - seguridad de credenciales explicada en lenguaje simple,
 - progreso legible,
 - errores con copy claro, no técnico.
+
+## Evolución prevista después de M1
+La estructura completa de marketplace, checkout, dashboard, seller, auth y admin se incorpora en milestones posteriores sobre este scaffold inicial.
 ```
 
 ---
