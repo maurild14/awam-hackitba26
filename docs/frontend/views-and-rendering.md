@@ -1,25 +1,31 @@
-
 # Archivo: `/docs/frontend/views-and-rendering.md`
 
 ```md
 # Views and Rendering
 
-## Estado implementado en M2
-En Milestone 2 el frontend ya tiene:
+## Estado implementado hasta M5
+El frontend ya tiene:
 - `layout.js`
 - `page.js`
 - `globals.css`
 - `auth/login/page.js`
 - `auth/register/page.js`
-
-Todavía no existen las páginas de marketplace, checkout, dashboards buyer/seller ni admin.
+- `marketplace/page.js`
+- `marketplace/[botRef]/page.js`
+- `checkout/[paymentId]/page.js`
+- `buyer/sessions/page.js`
+- `buyer/sessions/[sessionId]/page.js`
+- `seller/bots/page.js`
+- `admin/bots/page.js`
 
 ## Estrategia de renderizado
 
 ### Server Components
 - landing,
 - marketplace,
-- detalle del agente.
+- detalle del agente,
+- historial buyer,
+- detalle buyer de sesión.
 
 ### Client Components
 - auth,
@@ -27,10 +33,8 @@ Todavía no existen las páginas de marketplace, checkout, dashboards buyer/sell
 - dashboard,
 - seller panel,
 - admin,
-- session progress.
-
-
-```
+- session progress,
+- dynamic credentials form.
 
 ## Componentes clave
 - `BotCard`
@@ -44,10 +48,8 @@ Todavía no existen las páginas de marketplace, checkout, dashboards buyer/sell
 - progreso legible,
 - errores con copy claro, no técnico.
 
-## Evolución prevista después de M2
-La estructura completa de marketplace, checkout, dashboard, seller y admin se incorpora en milestones posteriores sobre esta base ya autenticable.
+## Evolución prevista después de M5
+La UX buyer ya cubre checkout -> credenciales -> sesión -> progreso -> resumen usando mocks. Runtime real, seller executions y observabilidad más profunda quedan para milestones posteriores.
 ```
 
 ---
-
-

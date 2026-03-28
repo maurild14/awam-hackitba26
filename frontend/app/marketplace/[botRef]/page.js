@@ -1,9 +1,8 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import CheckoutStartPanel from "../../../components/CheckoutStartPanel.js";
 import SiteFooter from "../../../components/SiteFooter.js";
 import SiteHeader from "../../../components/SiteHeader.js";
-import { formatCurrencyArs } from "../../../lib/bots.js";
 import {
   getCurrentUserOnServer,
   isNotFoundApiError
@@ -95,18 +94,7 @@ export default async function BotDetailPage({ params }) {
           </div>
 
           <aside className="sticky-purchase-card">
-            <span className="meta-label">Precio por ejecución</span>
-            <strong>{formatCurrencyArs(bot.price_ars)}</strong>
-            <p>
-              M3 solo publica metadata real. Checkout, pago y ejecución quedan
-              fuera hasta milestones posteriores.
-            </p>
-            <button className="primary-button" disabled type="button">
-              Checkout llega en M4
-            </button>
-            <Link className="nav-action ghost-button" href="/marketplace">
-              Volver al marketplace
-            </Link>
+            <CheckoutStartPanel bot={bot} user={user} />
           </aside>
         </section>
 
@@ -179,10 +167,11 @@ export default async function BotDetailPage({ params }) {
             <span className="eyebrow">Mensaje de confianza</span>
             <h2>Qué prometemos hoy y qué viene después</h2>
             <p>
-              Este milestone valida y publica metadata real del bot. La
-              arquitectura del producto está diseñada para que el código del seller
-              no vea la credencial real del buyer y para ejecutar cada agente en un
-              entorno aislado, pero ese runtime todavía no se implementa en M3.
+              Este milestone ya permite iniciar checkout dummy y registrar el
+              resultado del pago. La arquitectura del producto sigue diseñada
+              para que el código del seller no vea la credencial real del buyer y
+              para ejecutar cada agente en un entorno aislado, pero la carga de
+              credenciales y el runtime todavía quedan para M5 en adelante.
             </p>
           </article>
         </section>

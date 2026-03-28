@@ -64,8 +64,8 @@ export default async function HomePage() {
             <span className="meta-label">Metadata real</span>
             <strong>credential_schema, allowed_domains y resources</strong>
             <p>
-              M3 deja listo el shape que después usarán build, proxy, runtime y
-              checkout.
+              La metadata publicada ya alimenta el checkout dummy y prepara el
+              camino para build, proxy y runtime.
             </p>
           </div>
 
@@ -118,9 +118,9 @@ export default async function HomePage() {
           para sellers y admins.
         </h2>
         <p>
-          En este milestone todavía no habilitamos pagos, build ni runtime real.
-          Lo que sí queda listo es la base de confianza: qué hace el agente, cuánto
-          cuesta, qué credenciales necesita y qué dominios declara para trabajar.
+          El checkout dummy ya está disponible para registrar intención de compra y
+          resultado de pago sin cargos irreversibles. Build, credenciales y runtime
+          real siguen fuera hasta milestones posteriores.
         </p>
       </section>
 
@@ -184,9 +184,9 @@ export default async function HomePage() {
           <h2>El seller declara lo que necesita. El buyer entiende lo que va a compartir.</h2>
         </div>
         <p>
-          M3 ya muestra precio, credenciales requeridas, dominios y recursos por
-          bot. El checkout y la ejecución real quedan fuera hasta milestones
-          posteriores.
+          Ahora ya mostramos precio, credenciales requeridas, dominios y recursos
+          por bot, y además podés recorrer un checkout dummy completo. La ejecución
+          real sigue fuera hasta milestones posteriores.
         </p>
         {featuredBots[0] ? (
           <div className="trust-price-chip">

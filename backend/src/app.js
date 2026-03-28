@@ -29,6 +29,7 @@ export function createApp(options = {}) {
     })
   );
   app.use(express.json());
+  app.use(express.urlencoded({ extended: false }));
   app.use(cookieParser());
   app.use(requestContext);
   app.use(healthRoutes);

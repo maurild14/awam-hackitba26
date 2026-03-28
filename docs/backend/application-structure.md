@@ -1,21 +1,25 @@
-
 # Archivo: `/docs/backend/application-structure.md`
 
 ```md
 # Backend Application Structure
 
-## Estado implementado en M2
-En Milestone 2 el backend ya cubre:
+## Estado implementado hasta M5
+En Milestone 5 el backend ya cubre:
 - healthcheck,
 - auth por backend contra Supabase,
 - cookies `httpOnly`,
 - middlewares de auth y rol,
 - acceso a perfiles,
-- configuración de clientes Supabase.
+- configuración de clientes Supabase,
+- rutas de bots, payments, sessions y stream,
+- servicios mock para `secretStore`, `sandboxRunner` y `streamEmitter`.
 
 Todavía no están implementados:
-- rutas de bots, payments, sessions, stream e internal,
-- servicios de pagos, Vault, Redis, Docker o sandbox.
+- Vault real,
+- Redis real,
+- Docker real,
+- proxy real,
+- sandbox real.
 
 ## Estructura esperada
 
@@ -36,15 +40,28 @@ backend/
 │  │  ├─ errorHandler.js
 │  │  └─ requestContext.js
 │  ├─ models/
-│  │  └─ profile.js
+│  │  ├─ executionLog.js
+│  │  ├─ payment.js
+│  │  ├─ profile.js
+│  │  └─ session.js
 │  ├─ services/
-│  │  └─ authService.js
+│  │  ├─ authService.js
+│  │  ├─ mockSandboxRunner.js
+│  │  ├─ mockSecretStore.js
+│  │  ├─ mockStreamEmitter.js
+│  │  ├─ paymentService.js
+│  │  └─ sessionService.js
 │  └─ routes/
 │     ├─ auth.js
-│     └─ health.js
+│     ├─ health.js
+│     ├─ payments.js
+│     └─ sessions.js
 └─ test/
    ├─ auth.test.js
-   └─ health.test.js
+   ├─ health.test.js
+   ├─ payments.test.js
+   ├─ session-stream.test.js
+   └─ sessions.test.js
 ```
 
 ## Regla de separación
@@ -61,13 +78,14 @@ El backend valida JWTs de Supabase y luego aplica middlewares de rol.
 Toda respuesta de error debe ser consistente. No exponer stack traces ni detalles internos en producción.
 
 ## Dónde suele vivir la complejidad real
-- `sandboxService.js`
-- `vaultService.js`
+- `sessionService.js`
+- `mockSandboxRunner.js` ahora, `sandboxService.js` más adelante
+- `mockSecretStore.js` ahora, `vaultService.js` más adelante
 - `payments.js` + `mercadopagoService.js`
-- `stream.js`
+- `sessions.js` / `stream`
 
-## Evolución prevista después de M2
-Las rutas y servicios de negocio para bots, payments, sessions, streaming e internal se agregan en milestones posteriores sobre esta base de auth y perfiles.
+## Evolución prevista después de M5
+Los adapters mock de sesiones, secretos y streaming se reemplazan por Vault, Redis, proxy y runtime real en milestones posteriores sin cambiar el contrato buyer-facing.
 ```
 
 ---

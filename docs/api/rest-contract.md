@@ -73,13 +73,31 @@ Debe cubrir, como minimo:
 Debe cubrir:
 - crear sesion luego del pago,
 - enviar credenciales,
-- iniciar ejecucion,
+- iniciar ejecucion mock,
 - consultar historial de buyer,
 - consultar sesiones del seller con buyer anonimizado,
 - detener sesion si el producto lo permite.
 
+### Contrato minimo de M5
+- `POST /api/v1/sessions`
+  - requiere sesion buyer
+  - body: `{ payment_id, credentials }`
+  - valida que el `payment` exista, pertenezca al buyer, este `approved` y todavia no tenga sesion
+  - valida `credentials` contra `bot.credential_schema`
+  - devuelve `{ session: ... }`
+- `GET /api/v1/sessions`
+  - requiere sesion buyer
+  - devuelve `{ sessions: [...] }`
+  - expone historial basico buyer-facing
+- `GET /api/v1/sessions/:sessionId`
+  - requiere sesion buyer y ownership
+  - devuelve `{ session: ... }`
+  - incluye logs buyer-facing y `summary`
+
 ## Streaming
 - `GET /api/v1/sessions/:sessionId/stream`
+  - requiere sesion buyer y ownership
+  - emite eventos SSE buyer-facing `ready`, `status`, `log` y `summary`
 
 ## Internal
 Endpoints internos para:

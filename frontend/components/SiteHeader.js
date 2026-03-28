@@ -23,6 +23,7 @@ export default function SiteHeader({ user, context = "public" }) {
       <nav className="site-nav" aria-label="Principal">
         <Link href="/">Inicio</Link>
         <Link href="/marketplace">Marketplace</Link>
+        {user?.role === "buyer" ? <Link href="/buyer/sessions">Mis ejecuciones</Link> : null}
         {user?.role === "seller" ? <Link href="/seller/bots">Panel seller</Link> : null}
         {user?.role === "admin" ? <Link href="/admin/bots">Admin</Link> : null}
       </nav>
